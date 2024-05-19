@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name="lectures")
 
 //lombok anatasyonu kullanıldı
 @AllArgsConstructor
@@ -21,13 +21,20 @@ public class Lecture {
     @Column//(name= id)
     private Integer id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    public Integer getTeacherId(){
-        return teacher.getId();
-    }
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private User teacher;
 
+    public Integer getTeacherId(){
+        if (teacher != null) {
+            return teacher.getId();
+        }
+        return null;
+    }
+/*
     //one to many bir ilişki
     //one tarafı bu kıısm olacağı için many için burdan başlamam gerekmekte
     //eğer son kısmında one varsa buraya tekil tanımlarım
@@ -35,11 +42,13 @@ public class Lecture {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private User teacher;
-
+*/
     //mantto many ilişkiside mevcut; birden çok öğrenci birden çok lecture olabilir
    @ManyToMany
-   @JoinTable(name = "user_lectures", joinColumns = {@JoinColumn(name = "lecture_id",
-   referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")})
+   @JoinTable(name = "user_lectures",
+           joinColumns = {@JoinColumn(name = "lecture_id", referencedColumnName = "id")},
+           inverseJoinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")}
+   )
    private List<User> students;
    //eğer bu tanımlamayı user tarafında yapılsaydı  eğer ters şekilde olacaktı
 
