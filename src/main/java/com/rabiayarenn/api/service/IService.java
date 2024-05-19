@@ -10,7 +10,7 @@ public interface IService <T>{//generic bir servis yapısı oluşacak
     T save(T t);
     T getById(Integer id);
     List<T> getAll();
-    Page<T> findAll(Pageable pageable);
-    void delete(T t);
+    Page<T> getAll(Pageable pageable);
+    void delete(Integer id);
 
 }
