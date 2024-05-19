@@ -1,7 +1,7 @@
-package entity;
+package com.rabiayarenn.api.entity;
 
-import entity.enums.Gender;
-import entity.enums.Role;
+import com.rabiayarenn.api.entity.enums.Gender;
+import com.rabiayarenn.api.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

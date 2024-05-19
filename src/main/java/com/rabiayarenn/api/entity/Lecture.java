@@ -1,4 +1,4 @@
-package entity;
+package com.rabiayarenn.api.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package entity.enums;
+package com.rabiayarenn.api.entity.enums;
 
 public enum Gender {
     MALE, //MALE BURDA 0 OLARAK TEKABÜL EDERKEN
