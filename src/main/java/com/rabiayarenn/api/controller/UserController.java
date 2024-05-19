@@ -3,7 +3,6 @@ package com.rabiayarenn.api.controller;
 import com.rabiayarenn.api.entity.User;
 import com.rabiayarenn.api.entity.enums.Role;
 import com.rabiayarenn.api.service.IUserService;
-import com.rabiayarenn.api.service.impl.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
