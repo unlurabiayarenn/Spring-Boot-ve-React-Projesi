@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService implements IUserService {
+public class UserServiceImpl implements IUserService {
 
     private IUserRepository userRepository;
 
-    public UserService(IUserRepository userRepository) {
+    public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -61,6 +61,9 @@ public class UserService implements IUserService {
             throw new GeneralException("User not found");
         }
         return user.get();
+
+        //bu şekilde de istenilen sonuca varılabilir.
+        //return userRepository.findById(id).orElseThrow(() -> new GeneralException("User not found"));
     }
 
     @Override

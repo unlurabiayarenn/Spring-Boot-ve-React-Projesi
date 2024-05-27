@@ -21,8 +21,8 @@ public class UserController {
     }
     @GetMapping
     ResponseEntity<Page<User>> getUsers(@RequestParam(defaultValue = "0") Integer page,
-                                        @RequestParam(defaultValue = "0") Integer size) {
-        return ResponseEntity.ok(userService.getAll(PageRequest.of(page,size, Sort.by("id").descending())));
+                                        @RequestParam(defaultValue = "10") Integer size) {
+        return ResponseEntity.ok(userService.getAll(PageRequest.of(page,size, Sort.by("id"))));
     }
 
     @GetMapping("/by-role")
